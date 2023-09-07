@@ -1,13 +1,17 @@
 const express = require("express");
-const mongoose = requite("mongoose");
+const mongoose = require("mongoose");
 require("dotenv").config();
+const userRoutes = require("./routes/user");
 
 const app = express();
 const port = process.env.PORT || 9000;
 
+/* MIDDLEWARE */
+app.use("/api", userRoutes);
+
 /* ROUTES */
 app.get("/", (req, res) => {
-  res.send("Josue Hoenicka");
+  res.send("Welcome to my crudapp v1");
 });
 
 /* MONGODB CONNECTION */
